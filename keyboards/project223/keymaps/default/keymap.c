@@ -222,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
-     * │ SLP│  ½ │  ⅔ │  ⅓ │  ¼ │  ¾ │    │    │  ⅛ │  ⅑ │1/10│    │    │    │PTSC│
+     * │ SLP│  ½ │  ⅔ │  ⅓ │  ¼ │  ¾ │    │    │  ⅛ │  ⅑ │1/10│    │    │RSET│PTSC│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
      * │    │  ‽ │  ° │    │  € │    │    │  • │  × │    │  ∅ │  – │  ± │  ⟨ │  ⟩ │
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
@@ -244,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // CDOT, LEFT, DOWN, RIGHT,
 
     [_FN] = LAYOUT(
-        KC_SLEP, X(F_1_2), X(F_2_3), X(F_1_3),  X(F_1_4),  X(F_3_4), _______, _______,  X(F_1_8), X(F_1_9),  X(F_1_10),   _______,   _______,    _______,  KC_PSCR,
+        KC_SLEP, X(F_1_2), X(F_2_3), X(F_1_3),  X(F_1_4),  X(F_3_4), _______, _______,  X(F_1_8), X(F_1_9),  X(F_1_10),   _______,   _______,    RESET,    KC_PSCR,
         _______, X(BANG),  X(DEG),   _______,   X(EURO),   _______,  _______, X(BULL),  X(TIMES), _______,   X(EMPTY),    X(ENDASH), X(PLUSMIN), X(LANG),  X(RANG),
         _______, _______,  _______,  X(EXISTS), _______,   X(TM),    _______, X(UNION), X(IN),    X(OMEGA),  X(PROP),     _______,   _______,    X(EQISH), KC_VOLU,
         _______, X(ALPHA), X(SIGMA), X(DEG),    X(FORALL), _______,  _______, _______,  _______,  X(LAMBDA), X(THEREFOR), X(CDOTS),  X(RET),               KC_VOLD,
