@@ -23,13 +23,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID 0xFEED
 #define PRODUCT_ID 0x0000
 #define DEVICE_VER 0x0001
-#define MANUFACTURER Julia Ebert and Jennifer Shum
+#define MANUFACTURER "Julia Ebert and Jennifer Shum"
 #define PRODUCT project223
-#define DESCRIPTION A custom keyboard
+#define DESCRIPTION "A custom keyboard for Physics 223 at Harvard University"
 
 /* key matrix size */
-#define MATRIX_ROWS 2
-#define MATRIX_COLS 3
+#define MATRIX_ROWS 6
+#define MATRIX_COLS 15
 
 /*
  * Keyboard Matrix Assignments
@@ -41,9 +41,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *                  ROW2COL = ROW = Anode (+), COL = Cathode (-, marked on diode)
  *
  */
-#define MATRIX_ROW_PINS { D0, D5 }
-#define MATRIX_COL_PINS { F1, F0, B0 }
-#define UNUSED_PINS
+#define MATRIX_ROW_PINS \
+    { F7, F6, F5, F4, F1, F0 }
+#define MATRIX_COL_PINS \
+    { B4, D7, D4, D5, C7, C6, D3, D2, D1, D0, B7, B3, B2, B1, B0 }
+#define UNUSED_PINS \
+    { B6, B5, B4, D6 }
 
 /* COL2ROW, ROW2COL*/
 #define DIODE_DIRECTION COL2ROW
@@ -193,8 +196,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* disable these deprecated features by default */
 #ifndef LINK_TIME_OPTIMIZATION_ENABLE
-  #define NO_ACTION_MACRO
-  #define NO_ACTION_FUNCTION
+#    define NO_ACTION_MACRO
+#    define NO_ACTION_FUNCTION
 #endif
 /*
  * MIDI options
