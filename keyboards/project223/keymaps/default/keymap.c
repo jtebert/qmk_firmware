@@ -30,6 +30,7 @@ enum custom_keycodes {
 
 
 enum unicode_names {
+    // Reference: https://graphemica.com/
     F_1_2, F_2_3, F_1_3, F_1_4, F_3_4, F_1_8, F_1_9, F_1_10,
     BANG, DEG, EURO, BULL, TIMES, EMPTY, ENDASH, PLUSMIN, LANG, RANG,
     EXISTS, TM, UNION, IN, OMEGA, PROP, EQISH,
@@ -37,6 +38,7 @@ enum unicode_names {
     CHECK, BALX, COPY, BETA, MU, LEQ, GEQ, DIV, NEQ, UP,
     CDOT, LEFT, DOWN, RIGHT,
 
+    // Reference: https://unicode.org/emoji/charts/full-emoji-list.html
     BOMB, COW, ELEPHANT, DOG, MOUSE, CAT, LLAMA, SHEEP, SPIDER, OWL, MONKEY, PANDA, BADGER, TRASH, WARNING,
     LAPTOP, US_FLAG, THERM, PLANE, MONEY, SNEK, CHEESE, OCTO, ASTX, GIFT, CURLING, FINGX, ABACUS, SAD, HAPPY,
     THINK, WAVE, EYEROLL, ROBOT, TREX, HUH, SURP, SHRUG, OK, TONGUE, EGGPLANT, PEACH, NEUTRAL, RAINBOW,
@@ -219,7 +221,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         //     KC_TAB,   KC_SPC
     ),
     /*
-     * Unicode symbol reference: https://graphemica.com/
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
      * │ SLP│  ½ │  ⅔ │  ⅓ │  ¼ │  ¾ │    │    │  ⅛ │  ⅑ │1/10│    │    │    │PTSC│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
