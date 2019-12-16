@@ -1,6 +1,6 @@
 # Project223
 
-![project223](imgur.com image replace me!)
+![project223](https://i.imgur.com/285lQp8.jpg)
 
 This ortholinear handwired keyboard was made as a final project for Harvard's Physics 223: Electronics for Scientists. The default layout is incredibly personalized, to the point that it's probably not useful for most people. But it does feature an entire layer dedicated to emoji.
 
