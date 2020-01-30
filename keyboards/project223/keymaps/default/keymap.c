@@ -18,6 +18,7 @@
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,
+    _QWERTY,
     _FN,
     _EMOJI
 };
@@ -194,32 +195,53 @@ const uint32_t PROGMEM unicode_map[] = {
 
 };
 
-/*
- * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
- * │ ESC│ F1 │ F2 │ F3 │ F4 │ F5 │ F6 │ F7 │ F8 │ F9 │ F10│ F11│ F12│ DEL│PTSC│
- * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
- * │  ` │  1 │  2 │  3 │  4 │  5 │  6 │  7 │  8 │  9 │  0 │  - │  = │  ( │  ) │
- * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
- * │ TAB│  Q │  W │  E │  R │  T │  Y │  U │  I │  O │  P │  [ │  ] │  \ │PGUP│
- * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
- * │  _ │  A │  S │  D │  F │  G │  H │  J │  K │  L │  ; │  ' │  ENTER  │PGDN│
- * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
- * │SHFT│  Z │  X │  C │  V │  B │  N │  M │  , │  . │  / │CAPS│HOME│ UP │ END│
- * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
- * │CTRL│ ALT│ GUI│ DEL│BACKSPACE│  SPACE  │ENTR│ ALT│ FN0│ FN1│LEFT│DOWN│RGHT│
- * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
- */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* Base */
-    [_BASE] = LAYOUT(  /* Base layer */
+    /*
+     * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
+     * │ ESC│ F1 │ F2 │ F3 │ F4 │ F5 │ F6 │ F7 │ F8 │ F9 │ F10│ F11│ F12│ DEL│PTSC│
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+     * │  ` │  1 │  2 │  3 │  4 │  5 │  6 │  7 │  8 │  9 │  0 │  - │  = │  ( │  ) │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+     * │ TAB│  Q │  W │  F │  P │  G │  J │  L │  U │  Y │  ; │  [ │  ] │  \ │PGUP│
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
+     * │  _ │  A │  R │  S │  T │  D │  H │  N │  E │  I │  O │  ' │  ENTER  │PGDN│
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
+     * │SHFT│  Z │  X │  C │  V │  B │  K │  M │  , │  . │  / │CAPS│HOME│ UP │ END│
+     * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
+     * │CTRL│ ALT│ GUI│ DEL│BACKSPACE│  SPACE  │ENTR│ ALT│ FN0│ FN1│LEFT│DOWN│RGHT│
+     * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
+     */
+    [_BASE] = LAYOUT(  /* Colemak layer -- base */
+        KC_ESC,     KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5, KC_F6,  KC_F7, KC_F8,   KC_F9,   KC_F10,  KC_F11,     KC_F12,  KC_DEL,  KC_PSCR,
+        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,    KC_9,    KC_0,    KC_MINS,    KC_EQL,  S(KC_9), S(KC_0),
+        KC_TAB,     KC_Q,    KC_W,    KC_F,   KC_P,    KC_G,  KC_J,   KC_L,  KC_U,    KC_Y,    KC_SCLN, KC_LBRC,    KC_RBRC, KC_BSLS, KC_PGUP,
+        S(KC_MINS), KC_A,    KC_R,    KC_S,   KC_T,    KC_D,  KC_H,   KC_N,  KC_E,    KC_I,    KC_O,    KC_QUOT,    KC_ENT,           KC_PGDN,
+        KC_LSFT,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_K,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_CAPS,    KC_HOME, KC_UP,   KC_END,
+        KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_BSPC,        KC_SPC,        KC_ENT,  KC_RALT, MO(_FN), MO(_EMOJI), KC_LEFT, KC_DOWN, KC_RIGHT
+    ),
+
+    /*
+     * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
+     * │ ESC│ F1 │ F2 │ F3 │ F4 │ F5 │ F6 │ F7 │ F8 │ F9 │ F10│ F11│ F12│ DEL│PTSC│
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+     * │  ` │  1 │  2 │  3 │  4 │  5 │  6 │  7 │  8 │  9 │  0 │  - │  = │  ( │  ) │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+     * │ TAB│  Q │  W │  E │  R │  T │  Y │  U │  I │  O │  P │  [ │  ] │  \ │PGUP│
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
+     * │  _ │  A │  S │  D │  F │  G │  H │  J │  K │  L │  ; │  ' │  ENTER  │PGDN│
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
+     * │SHFT│  Z │  X │  C │  V │  B │  N │  M │  , │  . │  / │CAPS│HOME│ UP │ END│
+     * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
+     * │CTRL│ ALT│ GUI│ DEL│BACKSPACE│  SPACE  │ENTR│ ALT│ FN0│ FN1│LEFT│DOWN│RGHT│
+     * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
+     */
+    [_QWERTY] = LAYOUT(  /* QWERTY layer -- CURRENTLY NO WAY TO GET TO IT */
         KC_ESC,     KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5, KC_F6,  KC_F7, KC_F8,   KC_F9,   KC_F10,  KC_F11,     KC_F12,  KC_DEL,  KC_PSCR,
         KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,    KC_9,    KC_0,    KC_MINS,    KC_EQL,  S(KC_9),    S(KC_0),
         KC_TAB,     KC_Q,    KC_W,    KC_E,   KC_R,    KC_T,  KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_LBRC,    KC_RBRC, KC_BSLS, KC_PGUP,
         S(KC_MINS), KC_A,    KC_S,    KC_D,   KC_F,    KC_G,  KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT,    KC_ENT,           KC_PGDN,
         KC_LSFT,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_CAPS,    KC_HOME,    KC_UP,   KC_END,
         KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_BSPC,        KC_SPC,        KC_ENT,  KC_RALT, MO(_FN), MO(_EMOJI), KC_LEFT, KC_DOWN, KC_RIGHT
-        // KC_A,    KC_1,    MO(_FN),  // MOMENTARY FUNCTION LAYER ACTIVATION
-        //     KC_TAB,   KC_SPC
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
@@ -249,7 +271,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_EMOJI] = LAYOUT(
         X(BOMB),   X(COW),   X(ELEPHANT),  X(DOG),     X(MOUSE),  X(CAT),    X(LLAMA),  X(SHEEP),   X(SPIDER), X(OWL),   X(MONKEY),  X(PANDA),    X(BADGER), X(TRASH),   X(WARNING),
         X(LAPTOP), US_FLAG,  X(THERM),     X(PLANE),   X(MONEY),  X(SNEK),   X(CHEESE), X(OCTO),    X(ASTX),   X(GIFT),  X(CURLING), X(FINGX),    X(ABACUS), X(SAD),     X(HAPPY),
-        UC_MOD,    X(THINK), X(WAVE),      X(EYEROLL), X(ROBOT),  X(TREX),   X(HUH),    X(SURP),    X(SHRUG),  X(OK),    X(TONGUE),  X(EGGPLANT), X(PEACH),  X(NEUTRAL), X(RAINBOW),
+        _______,   X(THINK), X(WAVE),      X(EYEROLL), X(ROBOT),  X(TREX),   X(HUH),    X(SURP),    X(SHRUG),  X(OK),    X(TONGUE),  X(EGGPLANT), X(PEACH),  X(NEUTRAL), X(RAINBOW),
         _______,   X(ANGRY), X(SNOWFLAKE), X(HAPPYD),  X(FIRE),   X(GLOBE),  X(HANDS),  X(DIAMOND), X(KISS),   X(HEART), X(SADEYE),  X(PARTY),    X(NOENT),              X(STRONG),
         X(HAPPYC), X(ZZZ),   X(XX),        X(CLAP),    X(BIGEYE), X(BIKE),   X(NOSE),   X(MUSIC),   X(FIST),   X(FINGX),  X(ANGFACE), X(KEYBOARD), X(HOME),   X(THUMBUP), X(XFLAG),
         _______,   _______,  X(PENGUIN),   X(TRASH),   X(POOP),              X(ROCKET),             X(NOENT),  _______,  _______,    _______,     X(POINTL), X(THUMBDN), X(POINTR)
@@ -276,18 +298,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case US_FLAG:
             if (record->event.pressed) {
-                send_unicode_hex_string("1F1FA 1F1F8");
+                send_unicode_hex_string("1f1fA");
+                send_unicode_hex_string("1f1f8");
             }
             break;
     }
     return true;
 }
 
-/*
+
 void matrix_init_user(void) {
-
+    set_unicode_input_mode(UC_LNX);
 }
-
+/*
 void matrix_scan_user(void) {
 
 }
