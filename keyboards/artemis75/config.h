@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID 0x0000
 #define DEVICE_VER 0x0001
 #define MANUFACTURER "Julia Ebert and Jennifer Shum"
-#define PRODUCT project223
+#define PRODUCT artemis75
 #define DESCRIPTION "A custom keyboard for Physics 223 at Harvard University"
 
 /* key matrix size */
