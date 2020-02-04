@@ -37,7 +37,7 @@ enum unicode_names {
     // Reference: https://graphemica.com/
     F_1_2, F_2_3, F_1_3, F_1_4, F_3_4, F_1_8, F_1_9, F_1_10,
     BANG, DEG, EURO, BULL, TIMES, EMPTY, ENDASH, PLUSMIN, LANG, RANG,
-    EXISTS, TM, UNION, IN, OMEGA, PROP, EQISH,
+    EXISTS, TM, UNION, IN, OMEGA, PROP, PI, EQISH,
     ALPHA, SIGMA, FORALL, LAMBDA, THEREFOR, CDOTS, RET,
     CHECK, BALX, COPY, BETA, MU, LEQ, GEQ, DIV, NEQ, UP,
     CDOT, LEFT, DOWN, RIGHT,
@@ -53,57 +53,58 @@ enum unicode_names {
 
 const uint32_t PROGMEM unicode_map[] = {
     // Function layer
-    [F_1_2] = 0x00BD,
-    [F_2_3] = 0x2154,
-    [F_1_3] = 0x2153,
-    [F_1_4] = 0x00BC,
-    [F_3_4] = 0x00BE,
-    [F_1_8] = 0x215B,
-    [F_1_9] = 0x2151,
-    [F_1_10] = 0x2152,
+    [F_1_2] = 0x00BD, // ½
+    [F_2_3] = 0x2154, // ⅔
+    [F_1_3] = 0x2153, // ⅓
+    [F_1_4] = 0x00BC, // ¼
+    [F_3_4] = 0x00BE, // ¾
+    [F_1_8] = 0x215B, // ⅛
+    [F_1_9] = 0x2151, // ⅑
+    [F_1_10] = 0x2152, // ⅒
 
-    [BANG] = 0x203D,
-    [DEG] = 0x00B0,
-    [EURO] = 0x20AC,
-    [BULL] = 0x2022,
-    [TIMES] = 0x00D7,
-    [EMPTY] = 0x2205,
-    [ENDASH] = 0x2013,
-    [PLUSMIN] = 0x00B1,
-    [LANG] = 0x2329,
-    [RANG] = 0x232A,
+    [BANG] = 0x203D, // ‽
+    [DEG] = 0x00B0, // °
+    [EURO] = 0x20AC, // €
+    [BULL] = 0x2022, // •
+    [TIMES] = 0x00D7, // ×
+    [EMPTY] = 0x2205, // ∅
+    [ENDASH] = 0x2013, // –
+    [PLUSMIN] = 0x00B1, // ±
+    [LANG] = 0x2329, // 〈
+    [RANG] = 0x232A, // 〉
 
-    [EXISTS] = 0x2203,
-    [TM] = 0x2122,
-    [UNION] = 0x222A,
-    [IN] = 0x2208,
-    [OMEGA] = 0x03A9,
-    [PROP] = 0x221D,
-    [EQISH] = 0x2248,
+    [EXISTS] = 0x2203, // ∃
+    [TM] = 0x2122, // ™
+    [UNION] = 0x222A, // ∪
+    [IN] = 0x2208, // ∈
+    [OMEGA] = 0x03A9, // Ω
+    [PROP] = 0x221D, // ∝
+    [PI] = 0x03C0, // π
+    [EQISH] = 0x2248, // ≈
 
-    [ALPHA] = 0x03B1,
-    [SIGMA] = 0x03A3,
-    [FORALL] = 0x2200,
-    [LAMBDA] = 0x03BB,
-    [THEREFOR] = 0x2234,
-    [CDOTS] = 0x22EF,
-    [RET] = 0x23CE,
+    [ALPHA] = 0x03B1, // α
+    [SIGMA] = 0x03A3, // Σ
+    [FORALL] = 0x2200, // ∀
+    [LAMBDA] = 0x03BB, // λ
+    [THEREFOR] = 0x2234, // ∴
+    [CDOTS] = 0x22EF, // ⋯
+    [RET] = 0x23CE, // ⏎
 
-    [CHECK] = 0x2713,
-    [BALX] = 0x2717,
-    [COPY] = 0x00A9,
-    [BETA] = 0x03B2,
-    [MU] = 0x00B5,
-    [LEQ] = 0x2264,
-    [GEQ] = 0x2265,
-    [DIV] = 0x00F7,
-    [NEQ] = 0x2260,
-    [UP] = 0x2191,
+    [CHECK] = 0x2713, // ✓
+    [BALX] = 0x2717, // ✗
+    [COPY] = 0x00A9, // ©
+    [BETA] = 0x03B2, // β
+    [MU] = 0x00B5, // µ
+    [LEQ] = 0x2264, // ≤
+    [GEQ] = 0x2265, // ≥
+    [DIV] = 0x00F7, // ÷
+    [NEQ] = 0x2260, // ≠
+    [UP] = 0x2191, // ↑
 
-    [CDOT] = 0x23CE,
-    [LEFT] = 0x2190,
-    [DOWN] = 0x2193,
-    [RIGHT] = 0x2192,
+    [CDOT] = 0x22C5, // ⋅
+    [LEFT] = 0x2190, // ←
+    [DOWN] = 0x2193, // ↓
+    [RIGHT] = 0x2192, // →
 
     // Row 0
     [BOMB]  = 0X1F4A3, // 💣
@@ -181,7 +182,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [NOSE] = 0X1F443, // 👃
     [MUSIC] = 0X1F3B5, // 🎵
     [FIST] = 0X1F91B, // 🤛
-    [ANGFACE] = 0X1F620, // 😠
+    [ANGFACE] = 0X1F615, // 😕
     [KEYBOARD] = 0X2328, // ⌨
     [HOME] = 0X1F3E0, // 🏠
     [THUMBUP] = 0X1F44D, // 👍
@@ -208,18 +209,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
      * │  _ │  A │  R │  S │  T │  D │  H │  N │  E │  I │  O │  ' │  ENTER  │PGDN│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
-     * │SHFT│  Z │  X │  C │  V │  B │  K │  M │  , │  . │  / │CAPS│HOME│ UP │ END│
+     * │SHFT│  Z │  X │  C │  V │  B │  K │  M │  , │  . │  / │ FN0│HOME│ UP │ END│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │CTRL│ ALT│ GUI│ DEL│BACKSPACE│  SPACE  │ENTR│ ALT│ FN0│ FN1│LEFT│DOWN│RGHT│
+     * │CTRL│ ALT│ GUI│ DEL│BACKSPACE│  SPACE  │ENTR│RALT│ FN1│CAPS│LEFT│DOWN│RGHT│
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_COLEMAK] = LAYOUT(  /* Colemak layer -- base */
-        KC_ESC,     KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5, KC_F6,  KC_F7, KC_F8,   KC_F9,   KC_F10,  KC_F11,     KC_F12,  KC_BSPC,  KC_PSCR,
-        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,    KC_9,    KC_0,    KC_MINS,    KC_EQL,  S(KC_9), S(KC_0),
-        KC_TAB,     KC_Q,    KC_W,    KC_F,   KC_P,    KC_G,  KC_J,   KC_L,  KC_U,    KC_Y,    KC_SCLN, KC_LBRC,    KC_RBRC, KC_BSLS, KC_PGUP,
-        S(KC_MINS), KC_A,    KC_R,    KC_S,   KC_T,    KC_D,  KC_H,   KC_N,  KC_E,    KC_I,    KC_O,    KC_QUOT,    KC_ENT,           KC_PGDN,
-        KC_LSFT,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_K,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_CAPS,    KC_HOME, KC_UP,   KC_END,
-        KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_BSPC,        KC_SPC,        KC_ENT,  KC_RALT, MO(_C_FN), MO(_C_EMOJI), KC_LEFT, KC_DOWN, KC_RIGHT
+        KC_ESC,     KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5, KC_F6,  KC_F7, KC_F8,   KC_F9,   KC_F10,        KC_F11,    KC_F12,  KC_BSPC, KC_PSCR,
+        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,    KC_9,    KC_0,          KC_MINS,   KC_EQL,  S(KC_9), S(KC_0),
+        KC_TAB,     KC_Q,    KC_W,    KC_F,   KC_P,    KC_G,  KC_J,   KC_L,  KC_U,    KC_Y,    KC_SCLN,       KC_LBRC,   KC_RBRC, KC_BSLS, KC_PGUP,
+        S(KC_MINS), KC_A,    KC_R,    KC_S,   KC_T,    KC_D,  KC_H,   KC_N,  KC_E,    KC_I,    KC_O,          KC_QUOT,   _______,           KC_PGDN,
+        KC_LSFT,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_K,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH,       OSL(_C_FN), KC_HOME, KC_UP,   KC_END,
+        KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_BSPC,        KC_SPC,        KC_ENT,  KC_RALT, MO(_C_EMOJI),  KC_CAPS,   KC_LEFT, KC_DOWN, KC_RIGHT
     ),
 
     /*
@@ -232,18 +233,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
      * │  _ │  A │  S │  D │  F │  G │  H │  J │  K │  L │  ; │  ' │  ENTER  │PGDN│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
-     * │SHFT│  Z │  X │  C │  V │  B │  N │  M │  , │  . │  / │CAPS│HOME│ UP │ END│
+     * │SHFT│  Z │  X │  C │  V │  B │  N │  M │  , │  . │  / │ FN0│HOME│ UP │ END│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │CTRL│ ALT│ GUI│ DEL│BACKSPACE│  SPACE  │ENTR│ ALT│ FN0│ FN1│LEFT│DOWN│RGHT│
+     * │CTRL│ ALT│ GUI│ DEL│BACKSPACE│  SPACE  │ENTR│RALT│ FN1│CAPS│LEFT│DOWN│RGHT│
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_QWERTY] = LAYOUT(  /* QWERTY layer -- CURRENTLY NO WAY TO GET TO IT */
-        KC_ESC,     KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5, KC_F6,  KC_F7, KC_F8,   KC_F9,   KC_F10,  KC_F11,     KC_F12,  KC_BSPC,  KC_PSCR,
-        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,    KC_9,    KC_0,    KC_MINS,    KC_EQL,  S(KC_9),    S(KC_0),
-        KC_TAB,     KC_Q,    KC_W,    KC_E,   KC_R,    KC_T,  KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_LBRC,    KC_RBRC, KC_BSLS, KC_PGUP,
-        S(KC_MINS), KC_A,    KC_S,    KC_D,   KC_F,    KC_G,  KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN, KC_QUOT,    KC_ENT,           KC_PGDN,
-        KC_LSFT,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH, KC_CAPS,    KC_HOME,    KC_UP,   KC_END,
-        KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_BSPC,        KC_SPC,        KC_ENT,  KC_RALT, MO(_Q_FN), MO(_Q_EMOJI), KC_LEFT, KC_DOWN, KC_RIGHT
+        KC_ESC,     KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5, KC_F6,  KC_F7, KC_F8,   KC_F9,   KC_F10,       KC_F11,    KC_F12,  KC_BSPC, KC_PSCR,
+        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,    KC_9,    KC_0,         KC_MINS,   KC_EQL,  S(KC_9), S(KC_0),
+        KC_TAB,     KC_Q,    KC_W,    KC_E,   KC_R,    KC_T,  KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,         KC_LBRC,   KC_RBRC, KC_BSLS, KC_PGUP,
+        S(KC_MINS), KC_A,    KC_S,    KC_D,   KC_F,    KC_G,  KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN,      KC_QUOT,   KC_ENT,            KC_PGDN,
+        KC_LSFT,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH,      OSL(_Q_FN), KC_HOME, KC_UP,   KC_END,
+        KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_BSPC,        KC_SPC,        KC_ENT,  KC_RALT, MO(_Q_EMOJI), KC_CAPS,   KC_LEFT, KC_DOWN, KC_RIGHT
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
@@ -255,9 +256,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
      * │    │  α │  ∑ │  ° │  ∀ │    │    │    │    │  λ │  ∴ │  ⋯ │    ↵    │VLDN│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
-     * │    │  ✓ │  ✗ │  © │    │  β │    │  μ │  ≤ │  ≥ │  ÷ │  ≠ │    │  ↑ │MUTE│
+     * │    │  ✓ │  ✗ │  © │    │  β │    │  μ │  ≤ │  ≥ │  ÷ │    │    │  ↑ │MUTE│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │    │    │    │    │         │    ⋅    │  ↵ │    │    │    │  ← │  ↓ │  → │
+     * │    │    │    │    │         │    ⋅    │  ↵ │    │    │  ≠ │  ← │  ↓ │  → │
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_Q_FN] = LAYOUT(  /* QWERTY function layer */
@@ -265,8 +266,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, X(BANG),  X(DEG),   _______,   X(EURO),   _______,  _______, X(BULL),  X(TIMES), _______,   X(EMPTY),    X(ENDASH), X(PLUSMIN), X(LANG),       X(RANG),
         _______, _______,  _______,  X(EXISTS), _______,   X(TM),    _______, X(UNION), X(IN),    X(OMEGA),  X(PROP),     _______,   _______,    X(EQISH),      KC_VOLU,
         _______, X(ALPHA), X(SIGMA), X(DEG),    X(FORALL), _______,  _______, _______,  _______,  X(LAMBDA), X(THEREFOR), X(CDOTS),  X(RET),                    KC_VOLD,
-        _______, X(CHECK), X(BALX),  X(COPY),   _______,   X(BETA),  _______, X(MU),    X(LEQ),   X(GEQ),    X(DIV),      X(NEQ),    _______,    X(UP),         KC_MUTE,
-        _______, _______,  _______,  _______,   _______,             X(CDOT),           X(RET),   _______,   _______,     _______,   X(LEFT),    X(DOWN),       X(RIGHT)
+        _______, X(CHECK), X(BALX),  X(COPY),   _______,   X(BETA),  _______, X(MU),    X(LEQ),   X(GEQ),    X(DIV),      _______,   _______,    X(UP),         KC_MUTE,
+        _______, _______,  _______,  _______,   _______,             X(CDOT),           X(RET),   _______,   _______,     X(NEQ),    X(LEFT),    X(DOWN),       X(RIGHT)
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
@@ -274,38 +275,68 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
      * │    │  ‽ │  ° │    │  € │    │    │  • │  × │    │  ∅ │  – │  ± │  ⟨ │  ⟩ │
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
-     * │    │    │    │  ∀ │  ∝ │    │    │  λ │  ∪ │    │  ∴ │    │    │  ≈ │VLUP│
+     * │    │    │    │  ∀ │  ∝ │  π │    │  λ │  ∪ │    │  ∴ │    │    │  ≈ │VLUP│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
-     * │    │  α │    │  ∑ │  ™ │  ° │    │    │  ∃ │  ∈ │  Ω │  ⋯ │    ↵    │VLDN│
+     * │  - │  [ │  ] │  ( │  ) │  = │    │    │  ∃ │  ∈ │  Ω │  ⋯ │    ↵    │VLDN│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
-     * │    │  ✓ │  ✗ │  © │    │  β │    │  μ │  ≤ │  ≥ │  ÷ │  ≠ │    │  ↑ │MUTE│
+     * │    │  ✓ │  ✗ │  © │  ™ │  β │    │  μ │  ≤ │  ≥ │  ÷ │    │    │  ↑ │MUTE│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │    │    │    │    │         │    ⋅    │  ↵ │    │    │    │  ← │  ↓ │  → │
+     * │    │    │    │    │         │    ⋅    │  ↵ │    │    │  ≠ │  ← │  ↓ │  → │
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_C_FN] = LAYOUT(  /* Colemak function layer */
         KC_SLEP, X(F_1_2), X(F_2_3), X(F_1_3),  X(F_1_4), X(F_3_4), _______, _______,   X(F_1_8),  X(F_1_9), X(F_1_10),   _______,   _______,    DF(_QWERTY), RESET,
         _______, X(BANG),  X(DEG),   _______,   X(EURO),  _______,  _______, X(BULL),   X(TIMES),  _______,  X(EMPTY),    X(ENDASH), X(PLUSMIN), X(LANG),     X(RANG),
-        _______, _______,  _______,  X(FORALL), X(PROP),  _______,  _______, X(LAMBDA), X(UNION),  _______,  X(THEREFOR), _______,   _______,    X(EQISH),    KC_VOLU,
-        _______, X(ALPHA), _______,  X(SIGMA),  X(TM),    X(DEG),   _______, _______,   X(EXISTS), X(IN),    X(OMEGA),    X(CDOTS),  X(RET),                  KC_VOLD,
-        _______, X(CHECK), X(BALX),  X(COPY),   _______,  X(BETA),  _______, X(MU),     X(LEQ),    X(GEQ),   X(DIV),      X(NEQ),    _______,    X(UP),       KC_MUTE,
-        _______, _______,  _______,  _______,   _______,            X(CDOT),            X(RET),    _______,  _______,     _______,   X(LEFT),    X(DOWN),     X(RIGHT)
+        _______, _______,  _______,  X(FORALL), X(PROP),  X(PI),    _______, X(LAMBDA), X(UNION),  _______,  X(THEREFOR), _______,   _______,    X(EQISH),    KC_VOLU,
+        KC_MINS, KC_LBRC,  KC_RBRC,  S(KC_9),   S(KC_0),  KC_EQL,   _______, _______,   X(EXISTS), X(IN),    X(OMEGA),    X(CDOTS),  X(RET),                  KC_VOLD,
+        _______, X(CHECK), X(BALX),  X(COPY),   X(TM),    X(BETA),  _______, X(MU),     X(LEQ),    X(GEQ),   X(DIV),      _______,    _______,    X(UP),       KC_MUTE,
+        _______, _______,  _______,  _______,   _______,            X(CDOT),            X(RET),    _______,  _______,     X(NEQ),   X(LEFT),    X(DOWN),     X(RIGHT)
     ),
+    /*
+     * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
+     * │ 💣 │ 🐄 │ 🐘 │ 🐕 │ 🐁 │ 🐈 │ 🦙 │ 🐑 │ 🕷 │ 🦉 │ 🐵 │ 🐼 │ 🦡 │ 🗑 │ ⚠ │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+     * │ 💻 │ 🇺🇸 │ 🌡 │  ✈ │ 💸 │ 🐍 │ 🧀 │ 🐙 │ ✳ │ 🎁 │ 🥌 │ 🤞 │ 🧮 │  ☹ │ 🙂 │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+     * │    │ 🤔 │ 👋 │ 🙄 │ 🤖 │ 🦖 │ 🤨 │ 😲 │ 🤷 │ 👌 │ 😛 │ 🍆 │ 🍑 │ 😐 │ 🌈 │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
+     * │    │ 😠 │  ❄ │ 😀 │ 🔥 │ 🌍 │ 🙌 │ 💎 │ 😘 │ ❤ │ 🥺 │ 🎉 │    ⛔   │ 💪 │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
+     * │ 😊 │ 💤 │ ❌ │ 👏 │ 😳 │ 🚴 │ 👃 │ 🎵 │ 🤛 │ 🤞 │ 😕 │    │ 🏠 │ 👍 │ 🏁 │
+     * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
+     * │    │    │ 🐧 │ 🗑 │   💩    │    🚀   │ ⛔ │    │    │  ⌨ │ 👈 │ 👎 │ 👉 │
+     * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
+     */
     [_Q_EMOJI] = LAYOUT(  /* QWERTY emoji layer */
-        X(BOMB),   X(COW),   X(ELEPHANT),  X(DOG),     X(MOUSE),  X(CAT),    X(LLAMA),  X(SHEEP),   X(SPIDER), X(OWL),   X(MONKEY),  X(PANDA),    X(BADGER), X(TRASH),   X(WARNING),
-        X(LAPTOP), US_FLAG,  X(THERM),     X(PLANE),   X(MONEY),  X(SNEK),   X(CHEESE), X(OCTO),    X(ASTX),   X(GIFT),  X(CURLING), X(FINGX),    X(ABACUS), X(SAD),     X(HAPPY),
-        _______,   X(THINK), X(WAVE),      X(EYEROLL), X(ROBOT),  X(TREX),   X(HUH),    X(SURP),    X(SHRUG),  X(OK),    X(TONGUE),  X(EGGPLANT), X(PEACH),  X(NEUTRAL), X(RAINBOW),
-        _______,   X(ANGRY), X(SNOWFLAKE), X(HAPPYD),  X(FIRE),   X(GLOBE),  X(HANDS),  X(DIAMOND), X(KISS),   X(HEART), X(SADEYE),  X(PARTY),    X(NOENT),              X(STRONG),
-        X(HAPPYC), X(ZZZ),   X(XX),        X(CLAP),    X(BIGEYE), X(BIKE),   X(NOSE),   X(MUSIC),   X(FIST),   X(FINGX),  X(ANGFACE), X(KEYBOARD), X(HOME),   X(THUMBUP), X(XFLAG),
-        _______,   _______,  X(PENGUIN),   X(TRASH),   X(POOP),              X(ROCKET),             X(NOENT),  _______,  _______,    _______,     X(POINTL), X(THUMBDN), X(POINTR)
+        X(BOMB),   X(COW),   X(ELEPHANT),  X(DOG),     X(MOUSE),  X(CAT),    X(LLAMA),  X(SHEEP),   X(SPIDER), X(OWL),   X(MONKEY),   X(PANDA),    X(BADGER), X(TRASH),   X(WARNING),
+        X(LAPTOP), US_FLAG,  X(THERM),     X(PLANE),   X(MONEY),  X(SNEK),   X(CHEESE), X(OCTO),    X(ASTX),   X(GIFT),  X(CURLING),  X(FINGX),    X(ABACUS), X(SAD),     X(HAPPY),
+        _______,   X(THINK), X(WAVE),      X(EYEROLL), X(ROBOT),  X(TREX),   X(HUH),    X(SURP),    X(SHRUG),  X(OK),    X(TONGUE),   X(EGGPLANT), X(PEACH),  X(NEUTRAL), X(RAINBOW),
+        _______,   X(ANGRY), X(SNOWFLAKE), X(HAPPYD),  X(FIRE),   X(GLOBE),  X(HANDS),  X(DIAMOND), X(KISS),   X(HEART), X(SADEYE),   X(PARTY),    X(NOENT),              X(STRONG),
+        X(HAPPYC), X(ZZZ),   X(XX),        X(CLAP),    X(BIGEYE), X(BIKE),   X(NOSE),   X(MUSIC),   X(FIST),   X(FINGX),  X(ANGFACE), _______,     X(HOME),   X(THUMBUP), X(XFLAG),
+        _______,   _______,  X(PENGUIN),   X(TRASH),   X(POOP),              X(ROCKET),             X(NOENT),  _______,  _______,     X(KEYBOARD), X(POINTL), X(THUMBDN), X(POINTR)
     ),
+    /*
+     * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
+     * │ 💣 │ 🐄 │ 🐘 │ 🐕 │ 🐁 │ 🐈 │ 🦙 │ 🐑 │ 🕷 │ 🦉 │ 🐵 │ 🐼 │ 🦡 │ 🗑 │ ⚠ │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+     * │ 💻 │ 🇺🇸 │ 🌡 │  ✈ │ 💸 │ 🐍 │ 🧀 │ 🐙 │  ✳ │ 🎁 │ 🥌 │ 🤞 │ 🧮 │ ☹ │ 🙂 │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+     * │    │ 🤔 │ 👋 │ 🔥 │ 😛 │ 🌍 │ 💎 │ ❤ │ 😲 │ 🤨 │ 🥺 │ 🍆 │ 🍑 │ 😐 │ 🌈 │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
+     * │    │ 😠 │ 🤖 │ ❄ │ 🦖 │ 😀 │ 🙌 │ 👃 │ 🙄 │ 🤷 │ 👌 │ 🎉 │    ⛔   │ 💪 │
+     * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
+     * │ 😊 │ 💤 │ ❌ │ 👏 │ 😳 │ 🚴 │ 😘 │ 🎵 │ 🤛 │ 🤞 │ 😕 │    │ 🏠 │ 👍 │ 🏁 │
+     * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
+     * │    │    │ 🐧 │ 🗑 │   💩    │    🚀   │ ⛔ │    │    │  ⌨ │ 👈 │ 👎 │ 👉 │
+     * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
+     */
     [_C_EMOJI] = LAYOUT(  /* Colemak emoji layer */
         X(BOMB),   X(COW),   X(ELEPHANT), X(DOG),       X(MOUSE),  X(CAT),    X(LLAMA),   X(SHEEP), X(SPIDER),  X(OWL),   X(MONKEY),  X(PANDA),    X(BADGER), X(TRASH),   X(WARNING),
         X(LAPTOP), US_FLAG,  X(THERM),    X(PLANE),     X(MONEY),  X(SNEK),   X(CHEESE),  X(OCTO),  X(ASTX),    X(GIFT),  X(CURLING), X(FINGX),    X(ABACUS), X(SAD),     X(HAPPY),
         _______,   X(THINK), X(WAVE),     X(FIRE),      X(TONGUE), X(GLOBE),  X(DIAMOND), X(HEART), X(SURP),    X(HUH),   X(SADEYE),  X(EGGPLANT), X(PEACH),  X(NEUTRAL), X(RAINBOW),
         _______,   X(ANGRY), X(ROBOT),    X(SNOWFLAKE), X(TREX),   X(HAPPYD), X(HANDS),   X(NOSE),  X(EYEROLL), X(SHRUG), X(OK),      X(PARTY),    X(NOENT),              X(STRONG),
-        X(HAPPYC), X(ZZZ),   X(XX),       X(CLAP),      X(BIGEYE), X(BIKE),   X(KISS),    X(MUSIC), X(FIST),    X(FINGX), X(ANGFACE), X(KEYBOARD), X(HOME),   X(THUMBUP), X(XFLAG),
-        _______,   _______,  X(PENGUIN),  X(TRASH),     X(POOP),              X(ROCKET),            X(NOENT),   _______,  _______,    _______,     X(POINTL), X(THUMBDN), X(POINTR)
+        X(HAPPYC), X(ZZZ),   X(XX),       X(CLAP),      X(BIGEYE), X(BIKE),   X(KISS),    X(MUSIC), X(FIST),    X(FINGX), X(ANGFACE), _______,     X(HOME),   X(THUMBUP), X(XFLAG),
+        _______,   _______,  X(PENGUIN),  X(TRASH),     X(POOP),              X(ROCKET),            X(NOENT),   _______,  _______,    X(KEYBOARD), X(POINTL), X(THUMBDN), X(POINTR)
     )
 };
 
