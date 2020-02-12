@@ -210,9 +210,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
      * │  _ │  A │  R │  S │  T │  D │  H │  N │  E │  I │  O │  ' │  ENTER  │PGDN│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
-     * │BKSP│  Z │  X │  C │  V │  B │  K │  M │  , │  . │  / │ FN │HOME│ UP │ END│
+     * │BKSP│  Z │  X │  C │  V │  B │  K │  M │  , │  . │  / │MENU│HOME│ UP │ END│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │CTRL│ ALT│ GUI│ DEL│  LSHIFT │  SPACE  │ENTR│ FN │EMOJ│CAPS│LEFT│DOWN│RGHT│
+     * │CTRL│LALT│ GUI│ DEL│  LSHIFT │  SPACE  │ FN │RALT│EMOJ│CAPS│LEFT│DOWN│RGHT│
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_COLEMAK] = LAYOUT(  /* Colemak layer -- base */
@@ -220,7 +220,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,    KC_9,    KC_0,          KC_MINS,   KC_EQL,  S(KC_9), S(KC_0),
         KC_TAB,     KC_Q,    KC_W,    KC_F,   KC_P,    KC_G,  KC_J,   KC_L,  KC_U,    KC_Y,    KC_SCLN,       KC_LBRC,   KC_RBRC, KC_BSLS, KC_PGUP,
         S(KC_MINS), KC_A,    KC_R,    KC_S,   KC_T,    KC_D,  KC_H,   KC_N,  KC_E,    KC_I,    KC_O,          KC_QUOT,   KC_ENT,           KC_PGDN,
-        KC_BSPC,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_K,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH,       OSL(_C_FN), KC_HOME, KC_UP,   KC_END,
+        KC_BSPC,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_K,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH,       KC_APPLICATION, KC_HOME, KC_UP,   KC_END,
         KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_LSFT,        KC_SPC,        OSL(_C_FN), KC_RALT, MO(_C_EMOJI),  KC_CAPS,   KC_LEFT, KC_DOWN, KC_RIGHT
     ),
 
@@ -234,18 +234,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
      * │  _ │  A │  S │  D │  F │  G │  H │  J │  K │  L │  ; │  ' │  ENTER  │PGDN│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
-     * │BKSP│  Z │  X │  C │  V │  B │  N │  M │  , │  . │  / │ FN │HOME│ UP │ END│
+     * │BKSP│  Z │  X │  C │  V │  B │  N │  M │  , │  . │  / │MENU│HOME│ UP │ END│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │CTRL│ ALT│ GUI│ DEL│  LSHIFT │  SPACE  │ FN │RALT│EMOJ│CAPS│LEFT│DOWN│RGHT│
+     * │CTRL│LALT│ GUI│ DEL│  LSHIFT │  SPACE  │ FN │RALT│EMOJ│CAPS│LEFT│DOWN│RGHT│
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_QWERTY] = LAYOUT(  /* QWERTY layer */
-        KC_ESC,     KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5, KC_F6,  KC_F7, KC_F8,   KC_F9,   KC_F10,       KC_F11,    KC_F12,  KC_BSPC, KC_PSCR,
-        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,    KC_9,    KC_0,         KC_MINS,   KC_EQL,  S(KC_9), S(KC_0),
-        KC_TAB,     KC_Q,    KC_W,    KC_E,   KC_R,    KC_T,  KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,         KC_LBRC,   KC_RBRC, KC_BSLS, KC_PGUP,
-        S(KC_MINS), KC_A,    KC_S,    KC_D,   KC_F,    KC_G,  KC_H,   KC_J,  KC_K,    KC_L,    KC_SCLN,      KC_QUOT,   KC_ENT,            KC_PGDN,
-        KC_BSPC,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_SLSH,      OSL(_Q_FN), KC_HOME, KC_UP,   KC_END,
-        KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_LSFT,        KC_SPC,        OSL(_Q_FN),  KC_RALT, MO(_Q_EMOJI), KC_CAPS,   KC_LEFT, KC_DOWN, KC_RIGHT
+        KC_ESC,     KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5, KC_F6,  KC_F7, KC_F8,       KC_F9,   KC_F10,       KC_F11,         KC_F12,  KC_BSPC, KC_PSCR,
+        KC_GRV,     KC_1,    KC_2,    KC_3,   KC_4,    KC_5,  KC_6,   KC_7,  KC_8,        KC_9,    KC_0,         KC_MINS,        KC_EQL,  S(KC_9), S(KC_0),
+        KC_TAB,     KC_Q,    KC_W,    KC_E,   KC_R,    KC_T,  KC_Y,   KC_U,  KC_I,        KC_O,    KC_P,         KC_LBRC,        KC_RBRC, KC_BSLS, KC_PGUP,
+        S(KC_MINS), KC_A,    KC_S,    KC_D,   KC_F,    KC_G,  KC_H,   KC_J,  KC_K,        KC_L,    KC_SCLN,      KC_QUOT,        KC_ENT,            KC_PGDN,
+        KC_BSPC,    KC_Z,    KC_X,    KC_C,   KC_V,    KC_B,  KC_N,   KC_M,  KC_COMM,     KC_DOT,  KC_SLSH,      KC_APPLICATION, KC_HOME, KC_UP,   KC_END,
+        KC_LCTL,    KC_LALT, KC_LGUI, KC_DEL, KC_LSFT,        KC_SPC,        OSL(_Q_FN),  KC_RALT, MO(_Q_EMOJI), KC_CAPS,        KC_LEFT, KC_DOWN, KC_RIGHT
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
@@ -282,16 +282,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
      * │    │  ✓ │  ✗ │  © │  ™ │  β │  λ │  μ │  ≤ │  ≥ │  ÷ │    │    │  ↑ │MUTE│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │    │    │    │    │         │    ⋅    │    │    │    │    │  ← │  ↓ │  → │
+     * │    │    │    │    │         │    ⋅    │    │WHDN│WHUP│    │  ← │  ↓ │  → │
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_C_FN] = LAYOUT(  /* Colemak function layer */
-        KC_SLEP, X(F_1_2), X(F_2_3),   X(F_1_3),  X(F_1_4), X(F_3_4), _______,   _______, X(F_1_8), X(F_1_9), X(F_1_10), _______,     _______,    DF(_QWERTY), RESET,
-        KC_CALC, X(BANG),  X(SQUARED), X(CUBED),  X(EURO),  X(POUND), X(DEG),    X(BULL), X(TIMES), _______,  X(EMPTY),  X(ENDASH),   X(PLUSMIN), X(LANG),     X(RANG),
-        UC_MOD,  X(IN),    X(EXISTS),  X(FORALL), X(UNION), X(PI),    X(OMEGA),  KC_HOME, KC_PGDN,  KC_PGUP,  KC_END,    X(THEREFOR), X(NEQ),     X(EQISH),    KC_VOLU,
-        KC_MINS, KC_LBRC,  KC_RBRC,    S(KC_9),   S(KC_0),  KC_EQL,   X(PROP),   KC_LEFT, KC_DOWN,  KC_UP,    KC_RIGHT,  X(CDOTS),    X(RET),                  KC_VOLD,
-        _______, X(CHECK), X(BALX),    X(COPY),   X(TM),    X(BETA),  X(LAMBDA), X(MU),   X(LEQ),   X(GEQ),   X(DIV),    _______,     _______,    X(UP),       KC_MUTE,
-        _______, _______,  _______,    _______,   _______,            X(CDOT),            _______,  _______,  _______,   _______,     X(LEFT),    X(DOWN),     X(RIGHT)
+        KC_SLEP, X(F_1_2), X(F_2_3),   X(F_1_3),  X(F_1_4), X(F_3_4), _______,   _______, X(F_1_8), X(F_1_9),       X(F_1_10),   _______,     _______,    DF(_QWERTY), RESET,
+        KC_CALC, X(BANG),  X(SQUARED), X(CUBED),  X(EURO),  X(POUND), X(DEG),    X(BULL), X(TIMES), _______,        X(EMPTY),    X(ENDASH),   X(PLUSMIN), X(LANG),     X(RANG),
+        UC_MOD,  X(IN),    X(EXISTS),  X(FORALL), X(UNION), X(PI),    X(OMEGA),  KC_HOME, KC_PGDN,  KC_PGUP,        KC_END,      X(THEREFOR), X(NEQ),     X(EQISH),    KC_VOLU,
+        KC_MINS, KC_LBRC,  KC_RBRC,    S(KC_9),   S(KC_0),  KC_EQL,   X(PROP),   KC_LEFT, KC_DOWN,  KC_UP,          KC_RIGHT,    X(CDOTS),    X(RET),                  KC_VOLD,
+        _______, X(CHECK), X(BALX),    X(COPY),   X(TM),    X(BETA),  X(LAMBDA), X(MU),   X(LEQ),   X(GEQ),         X(DIV),      _______,     _______,    X(UP),       KC_MUTE,
+        _______, _______,  _______,    _______,   _______,            X(CDOT),            _______,  KC_MS_WH_DOWN,  KC_MS_WH_UP, _______,     X(LEFT),    X(DOWN),     X(RIGHT)
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
