@@ -274,7 +274,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
      * │ SLP│  ½ │  ⅔ │  ⅓ │  ¼ │  ¾ │    │    │  ⅛ │  ⅑ │1/10│    │    │QWTY│RSET│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
-     * │CALC│  ‽ │  ² │  ³ │  € │  £ │  ° │  • │  × │    │  ∅ │  – │  ± │  ⟨ │  ⟩ │
+     * │CALC│  ‽ │  ² │  ³ │  € │  £ │  ° │  • │  × │  ⋅ │  ∅ │  – │  ± │  ⟨ │  ⟩ │
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
      * │MODE│  ∈ │  ∃ │  ∀ │  ∪ │  π │  Ω │HOME│PGDN│PGUP│ END│  ∴ │  ≠ │  ≈ │VLUP│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┴────┼────┤
@@ -282,20 +282,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
      * │    │  ✓ │  ✗ │  © │  ™ │  β │  λ │  μ │  ≤ │  ≥ │  ÷ │    │    │  ↑ │MUTE│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │    │    │    │    │         │    ⋅    │    │WHDN│WHUP│    │  ← │  ↓ │  → │
+     * │    │    │    │    │         │PLAY/PAUS│    │WHDN│WHUP│    │  ← │  ↓ │  → │
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_C_FN] = LAYOUT(  /* Colemak function layer */
         KC_SLEP, X(F_1_2), X(F_2_3),   X(F_1_3),  X(F_1_4), X(F_3_4), _______,   _______, X(F_1_8), X(F_1_9),       X(F_1_10),   _______,     _______,    DF(_QWERTY), RESET,
-        KC_CALC, X(BANG),  X(SQUARED), X(CUBED),  X(EURO),  X(POUND), X(DEG),    X(BULL), X(TIMES), _______,        X(EMPTY),    X(ENDASH),   X(PLUSMIN), X(LANG),     X(RANG),
+        KC_CALC, X(BANG),  X(SQUARED), X(CUBED),  X(EURO),  X(POUND), X(DEG),    X(BULL), X(TIMES), X(CDOT),        X(EMPTY),    X(ENDASH),   X(PLUSMIN), X(LANG),     X(RANG),
         UC_MOD,  X(IN),    X(EXISTS),  X(FORALL), X(UNION), X(PI),    X(OMEGA),  KC_HOME, KC_PGDN,  KC_PGUP,        KC_END,      X(THEREFOR), X(NEQ),     X(EQISH),    KC_VOLU,
         KC_MINS, KC_LBRC,  KC_RBRC,    S(KC_9),   S(KC_0),  KC_EQL,   X(PROP),   KC_LEFT, KC_DOWN,  KC_UP,          KC_RIGHT,    X(CDOTS),    X(RET),                  KC_VOLD,
         _______, X(CHECK), X(BALX),    X(COPY),   X(TM),    X(BETA),  X(LAMBDA), X(MU),   X(LEQ),   X(GEQ),         X(DIV),      _______,     _______,    X(UP),       KC_MUTE,
-        _______, _______,  _______,    _______,   _______,            X(CDOT),            _______,  KC_MS_WH_DOWN,  KC_MS_WH_UP, _______,     X(LEFT),    X(DOWN),     X(RIGHT)
+        _______, _______,  _______,    _______,   _______,            KC_MPLY,            _______,  KC_MS_WH_DOWN,  KC_MS_WH_UP, _______,     X(LEFT),    X(DOWN),     X(RIGHT)
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
-     * │ 💣 │ 🐄 │ 🐘 │ 🐕 │ 🐁 │ 🐈 │ 🦙 │ 🐑 │ 🕷 │ 🦉 │ 🐵 │ 🐼 │ 🦡 │ 🗑 │ ⚠ │
+     * │ 💣 │ 🐄 │ 🐘 │ 🐕 │ 🐁 │ 🐈 │ 🦙 │ 🐑 │ 🕷 │ 🦉 │ 🐵 │ 🐼 │ 🦡 │ 💩 │ ⚠ │
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
      * │ 💻 │ 🇺🇸 │ 🌡 │  ✈ │ 💸 │ 🐍 │ 🧀 │ 🐙 │ ✳ │ 🎁 │ 🥌 │ 🤞 │ 🧮 │  ☹ │ 🙂 │
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
@@ -309,7 +309,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_Q_EMOJI] = LAYOUT(  /* QWERTY emoji layer */
-        X(BOMB),   X(COW),   X(ELEPHANT),  X(DOG),     X(MOUSE),  X(CAT),    X(LLAMA),  X(SHEEP),   X(SPIDER), X(OWL),   X(MONKEY),   X(PANDA),    X(BADGER), X(TRASH),   X(WARNING),
+        X(BOMB),   X(COW),   X(ELEPHANT),  X(DOG),     X(MOUSE),  X(CAT),    X(LLAMA),  X(SHEEP),   X(SPIDER), X(OWL),   X(MONKEY),   X(PANDA),    X(BADGER), X(POOP),   X(WARNING),
         X(LAPTOP), US_FLAG,  X(THERM),     X(PLANE),   X(MONEY),  X(SNEK),   X(CHEESE), X(OCTO),    X(ASTX),   X(GIFT),  X(CURLING),  X(FINGX),    X(ABACUS), X(SAD),     X(HAPPY),
         _______,   X(THINK), X(WAVE),      X(EYEROLL), X(ROBOT),  X(TREX),   X(HUH),    X(SURP),    X(SHRUG),  X(OK),    X(TONGUE),   X(EGGPLANT), X(PEACH),  X(NEUTRAL), X(RAINBOW),
         _______,   X(ANGRY), X(SNOWFLAKE), X(HAPPYD),  X(FIRE),   X(GLOBE),  X(HANDS),  X(DIAMOND), X(KISS),   X(HEART), X(SADEYE),   X(PARTY),    X(NOENT),              X(STRONG),
@@ -318,7 +318,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
-     * │ 💣 │ 🐄 │ 🐘 │ 🐕 │ 🐁 │ 🐈 │ 🦙 │ 🐑 │ 🕷 │ 🦉 │ 🐵 │ 🐼 │ 🦡 │ 🗑 │ ⚠ │
+     * │ 💣 │ 🐄 │ 🐘 │ 🐕 │ 🐁 │ 🐈 │ 🦙 │ 🐑 │ 🕷 │ 🦉 │ 🐵 │ 🐼 │ 🦡 │ 💩 │ ⚠ │
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
      * │ 💻 │ 🇺🇸 │ 🌡 │  ✈ │ 💸 │ 🐍 │ 🧀 │ 🐙 │  ✳ │ 🎁 │ 🥌 │ 🤞 │ 🧮 │ ☹ │ 🙂 │
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
@@ -332,7 +332,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_C_EMOJI] = LAYOUT(  /* Colemak emoji layer */
-        X(BOMB),   X(COW),   X(ELEPHANT), X(DOG),       X(MOUSE),  X(CAT),    X(LLAMA),   X(SHEEP), X(SPIDER),  X(OWL),   X(MONKEY),  X(PANDA),    X(BADGER), X(TRASH),   X(WARNING),
+        X(BOMB),   X(COW),   X(ELEPHANT), X(DOG),       X(MOUSE),  X(CAT),    X(LLAMA),   X(SHEEP), X(SPIDER),  X(OWL),   X(MONKEY),  X(PANDA),    X(BADGER), X(POOP),   X(WARNING),
         X(LAPTOP), US_FLAG,  X(THERM),    X(PLANE),     X(MONEY),  X(SNEK),   X(CHEESE),  X(OCTO),  X(ASTX),    X(GIFT),  X(CURLING), X(FINGX),    X(ABACUS), X(SAD),     X(HAPPY),
         _______,   X(THINK), X(WAVE),     X(FIRE),      X(TONGUE), X(GLOBE),  X(DIAMOND), X(HEART), X(SURP),    X(HUH),   X(SADEYE),  X(EGGPLANT), X(PEACH),  X(NEUTRAL), X(RAINBOW),
         _______,   X(ANGRY), X(ROBOT),    X(SNOWFLAKE), X(TREX),   X(HAPPYD), X(HANDS),   X(NOSE),  X(EYEROLL), X(SHRUG), X(OK),      X(PARTY),    X(NOENT),              X(STRONG),
