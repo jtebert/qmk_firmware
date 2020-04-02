@@ -35,7 +35,7 @@ enum custom_keycodes {
 
 enum unicode_names {
     // Reference: https://graphemica.com/
-    F_1_2, F_2_3, F_1_3, F_1_4, F_3_4, F_1_8, F_1_9, F_1_10,
+    F_1_2, F_2_3, F_1_3, F_1_4, HEX, F_3_4, F_1_8, F_1_9, F_1_10,
     BANG, DEG, EURO, POUND, SQUARED, CUBED, BULL, TIMES, EMPTY, ENDASH, PLUSMIN, LANG, RANG,
     EXISTS, TM, UNION, IN, OMEGA, PROP, PI, EQISH,
     ALPHA, SIGMA, FORALL, LAMBDA, THEREFOR, CDOTS, RET,
@@ -58,6 +58,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [F_1_3] = 0x2153, // ⅓
     [F_1_4] = 0x00BC, // ¼
     [F_3_4] = 0x00BE, // ¾
+    [HEX] = 0x2B21, // ⬡
     [F_1_8] = 0x215B, // ⅛
     [F_1_9] = 0x2151, // ⅑
     [F_1_10] = 0x2152, // ⅒
@@ -283,7 +284,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┬────┼────┤
      * │    │  { │  } │    │    │    │    │HOME│PGDN│PGUP│ END│    │    │    │MUTE│
      * ├────┼────┼────┼────┼────┴────┼────┴────┼────┼────┼────┼────┼────┼────┼────┤
-     * │WAKE│    │    │    │         │         │    │WBAK│WFWD│    │MPRV│PLAY│MNXT│
+     * │WAKE│    │    │    │  SPACE  │         │    │WBAK│WFWD│    │MPRV│PLAY│MNXT│
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_C_FN] = LAYOUT(  /* Colemak function/navigation layer, including keys useful for programming */
@@ -292,11 +293,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         UC_MOD,  _______,    _______,    _______, _______, _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  _______, _______, _______,     KC_VOLU,
         KC_MINS, KC_LBRC,    KC_RBRC,    S(KC_9), S(KC_0), KC_EQL,  _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______,              KC_VOLD,
         _______, S(KC_LBRC), S(KC_RBRC), _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______, _______, _______,     KC_MUTE,
-        KC_WAKE, _______,    _______,    _______, _______,          _______,          _______, KC_WBAK, KC_WFWD,  _______, KC_MPRV, KC_MPLY,     KC_MNXT
+        KC_WAKE, _______,    _______,    _______, MT(MOD_LSFT, KC_SPC) ,          _______,          _______, KC_WBAK, KC_WFWD,  _______, KC_MPRV, KC_MPLY,     KC_MNXT
     ),
     /*
      * ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
-     * │ SLP│  ½ │  ⅔ │  ⅓ │  ¼ │  ¾ │    │    │  ⅛ │  ⅑ │1/10│    │    │QWTY│RSET│
+     * │ SLP│  ½ │  ⅔ │  ⅓ │  ¼ │  ¾ │  ⬡ │    │  ⅛ │  ⅑ │1/10│    │    │QWTY│RSET│
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
      * │CALC│  ‽ │  ² │  ³ │  € │  £ │  ° │  • │  × │  ⋅ │  ∅ │  – │  ± │  ⟨ │  ⟩ │
      * ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
@@ -310,7 +311,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * └────┴────┴────┴────┴─────────┴─────────┴────┴────┴────┴────┴────┴────┴────┘
      */
     [_C_SYMB] = LAYOUT(  /* Colemak symbol layer */
-        KC_SLEP, X(F_1_2), X(F_2_3),   X(F_1_3),  X(F_1_4), X(F_3_4), _______,   _______, X(F_1_8), X(F_1_9),       X(F_1_10),   _______,     _______,    DF(_QWERTY), RESET,
+        KC_SLEP, X(F_1_2), X(F_2_3),   X(F_1_3),  X(F_1_4), X(F_3_4), X(HEX),    _______, X(F_1_8), X(F_1_9),       X(F_1_10),   _______,     _______,    DF(_QWERTY), RESET,
         KC_CALC, X(BANG),  X(SQUARED), X(CUBED),  X(EURO),  X(POUND), X(DEG),    X(BULL), X(TIMES), X(CDOT),        X(EMPTY),    X(ENDASH),   X(PLUSMIN), X(LANG),     X(RANG),
         UC_MOD,  X(IN),    X(EXISTS),  X(FORALL), X(UNION), X(PI),    X(OMEGA),  KC_HOME, KC_PGDN,  KC_PGUP,        KC_END,      X(THEREFOR), X(NEQ),     X(EQISH),    KC_VOLU,
         KC_MINS, KC_LBRC,  KC_RBRC,    S(KC_9),   S(KC_0),  KC_EQL,   X(PROP),   KC_LEFT, KC_DOWN,  KC_UP,          KC_RIGHT,    X(CDOTS),    X(RET),                  KC_VOLD,
