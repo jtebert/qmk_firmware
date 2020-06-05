@@ -1,0 +1,1 @@
+This simulates the layout/layers I'm thinking of using for a Planck keyboard, as a way to test out the idea. This isn't a very generally useful way to use this keyboard, since some of the keys just aren't even used.

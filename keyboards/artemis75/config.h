@@ -253,3 +253,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Bootmagic Lite key configuration */
 // #define BOOTMAGIC_LITE_ROW 0
 // #define BOOTMAGIC_LITE_COLUMN 0
+
+// Change the timeout on modtap (MT) so that I can type " = " instead of "+ "
+#define TAPPING_TERM 400
