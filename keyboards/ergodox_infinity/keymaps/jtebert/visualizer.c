@@ -47,7 +47,7 @@ static void get_visualizer_layer_and_color(visualizer_state_t* state) {
             break;
         case _COLEMAK:
             state->layer_text       = "Colemak";
-            state->target_lcd_color = LCD_COLOR(35, 0, intensity);  // yellow=35
+            state->target_lcd_color = LCD_COLOR(0, 0, 255);  // yellow=35
             break;
     }
 

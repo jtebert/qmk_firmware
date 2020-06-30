@@ -18,6 +18,34 @@ enum custom_keycodes {
     QWERTY
 };
 
+enum unicode_names {
+    // LEFT HAND
+    SQUARED, CUBED, PLUSMIN,
+    // RIGHT HAND
+    DEG, TIMES, ENDASH, EQISH, LEQ, GEQ, DIV, NEQ,
+    LEFT, DOWN, UP, RIGHT
+};
+
+const uint32_t PROGMEM unicode_map[] = {
+    // LEFT HAND
+    [SQUARED] = 0x00B2,  // ²
+    [CUBED]   = 0x00B3,  // ³
+    [PLUSMIN] = 0x00B1,  // ±
+    // RIGHT HAND
+    [DEG]     = 0x00B0,  // °
+    [TIMES]   = 0x00D7,  // ×
+    [ENDASH]  = 0x2013,  // –
+    [EQISH]   = 0x2248,  // ≈
+    [LEQ]     = 0x2264,  // ≤
+    [GEQ]     = 0x2265,  // ≥
+    [DIV]     = 0x00F7,  // ÷
+    [NEQ]     = 0x2260,  // ≠
+    [LEFT]  = 0x2190,  // ←
+    [DOWN]  = 0x2193,  // ↓
+    [UP]    = 0x2191,  // ↑
+    [RIGHT] = 0x2192,  // →
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* BASE LAYER (COLEMAK)
      *
@@ -101,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* FUNCTION LAYER: Function keys and interaction
      * ┌──────┬────┬────┬────┬────┬────┬────┐              ┌────┬────┬────┬────┬────┬────┬──────┐
-     * │PrtScr│ F1 │ F2 │ F3 │ F4 │ F5 │    │              │ F12│ F6 │ F7 │ F8 │ F9 │ F10│  F11 │
+     * │PrtScr│ F1 │ F2 │ F3 │ F4 │ F5 │    │              │Mode│ F6 │ F7 │ F8 │ F9 │ F10│  F11 │
      * ├──────┼────┼────┼────┼────┼────┼────┤              ├────┼────┼────┼────┼────┼────┼──────┤
      * │      │    │    │    │    │    │    │              │    │    │ScLt│ScDn│ScUp│ScRt│  F12 │
      * ├──────┼────┼────┼────┼────┼────┤    │              │    ├────┼────┼────┼────┼────┼──────┤
@@ -129,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                      C(KC_PGUP),
                                    KC_SLEP, _______, C(KC_PGDN),
         // right hand
-        KC_F12,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,
+        UC_MOD,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,
         _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  KC_F12,
                  _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______,
         _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______,
@@ -140,7 +168,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     /* SYMBOL: Miscellaneous Symbols/Characters
      * ┌──────┬────┬────┬────┬────┬────┬────┐              ┌────┬────┬────┬────┬────┬────┬──────┐
-     * │ FLASH│    │  ° │    │    │    │    │              │    │    │    │  × │    │    │   –  │
+     * │ FLASH│    │  ² │  ³ │    │    │    │              │    │  ° │    │  × │    │    │   –  │
      * ├──────┼────┼────┼────┼────┼────┼────┤              ├────┼────┼────┼────┼────┼────┼──────┤
      * │      │    │    │    │    │    │  ± │              │    │    │    │    │    │    │   ≈  │
      * ├──────┼────┼────┼────┼────┼────┤    │              │    ├────┼────┼────┼────┼────┼──────┤
@@ -159,23 +187,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_SYMB] = LAYOUT_ergodox(
         // left hand
-        RESET,   _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______,
-                                            _______, _______,
-                                                     _______,
-                                   _______, _______, _______,
+        RESET,   _______, X(SQUARED), X(CUBED), _______, _______, _______,
+        _______, _______, _______,    _______,  _______, _______, X(PLUSMIN),
+        _______, _______, _______,    _______,  _______, _______,
+        _______, _______, _______,    _______,  _______, _______, _______,
+        _______, _______, _______,    _______,  _______,
+                                                _______, _______,
+                                                         _______,
+                                      _______,  _______, _______,
         // right hand
-        _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______,
-                 _______, _______, _______, _______, _______, _______,
-        _______, _______, _______, _______, _______, _______, _______,
-                          _______, _______, _______, _______, _______,
-        KC_MPRV, KC_MNXT,
-        KC_VOLU,
-        KC_VOLD, KC_MUTE, KC_MPLY),
+        _______, X(DEG),  _______, X(TIMES), _______, _______, X(ENDASH),
+        _______, _______, _______, _______,  _______, _______, X(EQISH),
+                 _______, _______, _______,  _______, _______, _______,
+        _______, _______, _______, X(LEQ),   X(GEQ),  X(DIV),  X(NEQ),
+                          _______, X(LEFT),  X(DOWN), X(UP),   X(RIGHT),
+        _______, _______,
+        _______,
+        _______, _______, _______),
 
     /* Keymap 2: Media and mouse keys
      *
@@ -245,7 +273,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void){
-
+    // Start in Linux mode for unicode input    
+    set_unicode_input_mode(UC_LNX);
 };
 
 // Runs constantly in the background, in a loop.
