@@ -28,3 +28,10 @@ I also had to install the following dependencies to get it to compile:
 ```shell
 sudo apt install dfu-util gcc-arm-none-eabi
 ```
+
+## TODO
+
+- Fix follower/non-master hand not showing correct persistent layer
+- Change colors/brightness/saturation for the different layers
+- Add unicode support
+- Add reset key for each half5
