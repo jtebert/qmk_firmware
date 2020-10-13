@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Colemak
  * ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
- * │  ESC │   1  │   2  │   3  │   4  │   5  │   6  │   7  │   8  │   9  │   0  │   `  │
+ * │   `  │   1  │   2  │   3  │   4  │   5  │   6  │   7  │   8  │   9  │   0  │  ESC │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │  TAB │   Q  │   W  │   F  │   P  │   G  │   J  │   L  │   U  │   Y  │   ;  │   =  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
@@ -122,7 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
  */
 [_COLEMAK] = LAYOUT_preonic_grid( \
-  KC_ESC,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_GRV,  \
+  KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_ESC,  \
   KC_TAB,  KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_EQL, \
   KC_UNDS, KC_A,   KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,  \
   KC_BSPC, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,  \
@@ -261,30 +261,56 @@ uint16_t muse_counter = 0;
 uint8_t muse_offset = 70;
 uint16_t muse_tempo = 50;
 
+// void encoder_update_user(uint8_t index, bool clockwise) {
+//   if (muse_mode) {
+//     if (IS_LAYER_ON(_RAISE)) {
+//       if (clockwise) {
+//         muse_offset++;
+//       } else {
+//         muse_offset--;
+//       }
+//     } else {
+//       if (clockwise) {
+//         muse_tempo+=1;
+//       } else {
+//         muse_tempo-=1;
+//       }
+//     }
+//   } else {
+//     if (clockwise) {
+//       register_code(KC_PGDN);
+//       unregister_code(KC_PGDN);
+//     } else {
+//       register_code(KC_PGUP);
+//       unregister_code(KC_PGUP);
+//     }
+//   }
+// }
+
+/* The encoder_update_user is a function.
+ * It'll be called by QMK every time you turn the encoder.
+ *
+ * The index parameter tells you which encoder was turned. If you only have
+ * one encoder, the index will always be zero.
+ *
+ * The clockwise parameter tells you the direction of the encoder. It'll be
+ * true when you turned the encoder clockwise, and false otherwise.
+ *
+ * For more ideas, see:
+ * https://docs.splitkb.com/hc/en-us/articles/360010513760-How-can-I-use-a-rotary-encoder-
+ */
 void encoder_update_user(uint8_t index, bool clockwise) {
-  if (muse_mode) {
-    if (IS_LAYER_ON(_RAISE)) {
-      if (clockwise) {
-        muse_offset++;
-      } else {
-        muse_offset--;
-      }
-    } else {
-      if (clockwise) {
-        muse_tempo+=1;
-      } else {
-        muse_tempo-=1;
-      }
+    if (index == 0) { /* First encoder */
+        if (clockwise) {
+            // tap_code(KC_PGDN);
+            // tap_code(KC_VOLU);
+            tap_code16(C(KC_PGDN));
+        } else { /* counterclockwise */
+            // tap_code(KC_PGUP);
+            // tap_code(KC_VOLD);
+            tap_code16(C(KC_PGUP));
+        }
     }
-  } else {
-    if (clockwise) {
-      register_code(KC_PGDN);
-      unregister_code(KC_PGDN);
-    } else {
-      register_code(KC_PGUP);
-      unregister_code(KC_PGUP);
-    }
-  }
 }
 
 void dip_switch_update_user(uint8_t index, bool active) {
