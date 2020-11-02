@@ -16,6 +16,7 @@
 *.swp
 tags
 *~
+api_data/v1
 build/
 .build/
 *.bak
@@ -74,4 +75,5 @@ __pycache__
 # prerequisites for updating ChibiOS
 /util/fmpp*
 
-.vscode
+# Allow to exist but don't include it in the repo
+user_song_list.h
