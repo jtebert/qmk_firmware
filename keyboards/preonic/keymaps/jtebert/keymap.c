@@ -114,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │  TAB │   Q  │   W  │   F  │   P  │   G  │   J  │   L  │   U  │   Y  │   ;  │   =  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │   _  │   A  │   R  │   S  │   T  │   D  │   H  │   N  │   E  │   I  │   O  │   '  │
+ * │   -  │   A  │   R  │   S  │   T  │   D  │   H  │   N  │   E  │   I  │   O  │   '  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │ BKSP │   Z  │   X  │   C  │   V  │   B  │   K  │   M  │   ,  │   .  │   /  │ENTER │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
@@ -124,7 +124,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_COLEMAK] = LAYOUT_preonic_grid( \
   KC_GRV,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_ESC,  \
   KC_TAB,  KC_Q,   KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_EQL, \
-  KC_UNDS, KC_A,   KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,  \
+  KC_MINS, KC_A,   KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT,  \
   KC_BSPC, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,  \
   KC_LCTL, KC_DEL, KC_LALT, KC_LGUI, LOWER,   KC_LSFT, KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
 ),
@@ -135,17 +135,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │      │      │      │      │      │      │      │      │      │      │      │   |  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │   -  │   [  │   ]  │   (  │   )  │      │      │   -  │   =  │   +  │      │   \  │
+ * │   _  │   [  │   ]  │   (  │   )  │      │      │   -  │   =  │   +  │      │   \  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │      │   {  │   }  │      │      │      │      │      │      │      │      │      │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │      │      │      │      │      │      │      │      │ Home │ Pg Dn│ Pg Up│  End │
+ * │      │      │      │      │ **** │      │      │      │ Home │ Pg Dn│ Pg Up│  End │
  * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
  */
 [_LOWER] = LAYOUT_preonic_grid( \
   _______, X(BANG), X(SQUARED), X(CUBED), X(EURO), X(POUND), X(DEG),  X(BULL), X(TIMES), X(CDOT), X(NEQ),  _______, \
   _______, _______, _______,   _______,   _______, _______,  _______, _______, _______,  _______, _______, KC_PIPE, \
-  KC_MINS, KC_LBRC, KC_RBRC,   KC_LPRN,   KC_RPRN, _______,  _______, KC_MINS, KC_EQL,   KC_PLUS, _______, KC_BSLS, \
+  KC_UNDS, KC_LBRC, KC_RBRC,   KC_LPRN,   KC_RPRN, _______,  _______, KC_MINS, KC_EQL,   KC_PLUS, _______, KC_BSLS, \
   _______, KC_LCBR, KC_RCBR,   _______,   _______, _______,  _______, _______, _______,  _______, _______, _______, \
   _______, _______, _______,   _______,   _______, _______,  _______, _______, KC_HOME,  KC_PGDN, KC_PGUP, KC_END
 ),
@@ -160,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │   💩 │   ✓  │   ™  │   ©  │      │   β  │      │      │   ≤  │   ≥  │   ±  │   ≈  │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │      │      │      │      │      │ CAPS │      │      │   ←  │   ↓  │   ↑  │  →   │
+ * │      │      │      │      │ **** │ CAPS │      │ **** │   ←  │   ↓  │   ↑  │  →   │
  * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
  */
 [_ADJUST] = LAYOUT_preonic_grid( \
@@ -181,15 +181,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
  * │QWERTY│      │      │Tab Lt│Tab Rt│      │      │ Home │ Pg Dn│ Pg Up│  End │      │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │      │      │      │      │      │      │      │      │ Mute │ Vol -│ Vol +│ Play │
+ * │      │      │      │      │      │      │ Play │ **** │ Mute │ Vol -│ Vol +│ Next │
  * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
  */
 [_RAISE] = LAYOUT_preonic_grid( \
-  KC_SLEP, KC_F1,   KC_F2,   KC_F3,      KC_F4,      KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_CALC,   \
+  KC_SLEP, KC_F1,   KC_F2,   KC_F3,      KC_F4,      KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_CALC, \
   UC_MOD,  _______, _______, _______,    KC_PSCR,    _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  _______, \
   COLEMAK, _______, _______, KC_WBAK,    KC_WFWD,    _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, \
   QWERTY,  _______, _______, C(KC_PGUP), C(KC_PGDN), _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______, \
-  _______, _______, _______, _______,    _______,    _______, _______, _______, KC_MUTE, KC_VOLD, KC_VOLU,  KC_MPLY
+  _______, _______, _______, _______,    _______,    _______, KC_MPLY, _______, KC_MUTE, KC_VOLD, KC_VOLU,  KC_MNXT
 )
 
 };
