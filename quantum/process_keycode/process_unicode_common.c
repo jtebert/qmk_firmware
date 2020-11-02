@@ -136,20 +136,10 @@ __attribute__((weak)) void unicode_input_cancel(void) {
     set_mods(unicode_saved_mods);  // Reregister previously set mods
 }
 
-__attribute__((weak)) uint16_t hex_to_keycode(uint8_t hex) {
-    if (hex == 0x0) {
-        return KC_0;
-    } else if (hex < 0xA) {
-        return KC_1 + (hex - 0x1);
-    } else {
-        return KC_A + (hex - 0xA);
-    }
-}
-
 void register_hex(uint16_t hex) {
     for (int i = 3; i >= 0; i--) {
         uint8_t digit = ((hex >> (i * 4)) & 0xF);
-        tap_code(hex_to_keycode(digit));
+        tap_code16(hex_to_keycode(digit));
     }
 }
 
@@ -162,13 +152,32 @@ void register_hex32(uint32_t hex) {
         uint8_t digit = ((hex >> (i * 4)) & 0xF);
         if (digit == 0) {
             if (!onzerostart) {
-                tap_code(hex_to_keycode(digit));
+                tap_code16(hex_to_keycode(digit));
             }
         } else {
-            tap_code(hex_to_keycode(digit));
+            tap_code16(hex_to_keycode(digit));
             onzerostart = false;
         }
     }
+}
+
+void register_unicode(uint32_t code_point) {
+    if (code_point > 0x10FFFF || (code_point > 0xFFFF && unicode_config.input_mode == UC_WIN)) {
+        // Code point out of range, do nothing
+        return;
+    }
+
+    unicode_input_start();
+    if (code_point > 0xFFFF && unicode_config.input_mode == UC_MAC) {
+        // Convert code point to UTF-16 surrogate pair on macOS
+        code_point -= 0x10000;
+        uint32_t lo = code_point & 0x3FF, hi = (code_point & 0xFFC00) >> 10;
+        register_hex32(hi + 0xD800);
+        register_hex32(lo + 0xDC00);
+    } else {
+        register_hex32(code_point);
+    }
+    unicode_input_finish();
 }
 
 // clang-format off
@@ -236,14 +245,12 @@ void send_unicode_string(const char *str) {
         return;
     }
 
-    int32_t code_point = 0;
     while (*str) {
-        str = decode_utf8(str, &code_point);
+        int32_t code_point = 0;
+        str                = decode_utf8(str, &code_point);
 
         if (code_point >= 0) {
-            unicode_input_start();
-            register_hex32(code_point);
-            unicode_input_finish();
+            register_unicode(code_point);
         }
     }
 }
