@@ -97,7 +97,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * |  RGB | Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_DEL,  \
   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,  \
-  BACKLIT, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+  RGB_TOG, KC_LCTL, KC_LALT, KC_LGUI, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
 ),
 
 /* Colemak
@@ -175,21 +175,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ┌──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┬──────┐
  * │ SLEEP│  F1  │  F2  │  F3  │  F4  │  F5  │  F6  │  F7  │  F8  │  F9  │  F10 │ CALC │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │UCMode│      │      │      │PrntSc│      │      │Scr Lt│Scr Dn│Scr Up│Scr Rt│      │
+ * │UCMode│  HUE │      │      │PrntSc│      │      │Scr Lt│Scr Dn│Scr Up│Scr Rt│      │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │Colemk│      │      │WEB BK│WEB FD│      │      │ Left │ Down │  Up  │ Right│      │
+ * │Colemk│  SAT │      │WEB BK│WEB FD│      │      │ Left │ Down │  Up  │ Right│      │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │QWERTY│      │      │Tab Lt│Tab Rt│      │      │ Home │ Pg Dn│ Pg Up│  End │      │
+ * │QWERTY│  VAL │      │Tab Lt│Tab Rt│      │      │ Home │ Pg Dn│ Pg Up│  End │      │
  * ├──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┼──────┤
- * │      │      │      │      │      │      │ Play │ **** │ Mute │ Vol -│ Vol +│ Next │
+ * │  RGB │      │      │      │      │      │ Play │ **** │ Mute │ Vol -│ Vol +│ Next │
  * └──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┴──────┘
  */
 [_RAISE] = LAYOUT_preonic_grid( \
   KC_SLEP, KC_F1,   KC_F2,   KC_F3,      KC_F4,      KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_CALC, \
-  UC_MOD,  _______, _______, _______,    KC_PSCR,    _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  _______, \
-  COLEMAK, _______, _______, KC_WBAK,    KC_WFWD,    _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, \
-  QWERTY,  _______, _______, C(KC_PGUP), C(KC_PGDN), _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______, \
-  _______, _______, _______, _______,    _______,    _______, KC_MPLY, _______, KC_MUTE, KC_VOLD, KC_VOLU,  KC_MNXT
+  UC_MOD,  RGB_HUI, _______, _______,    KC_PSCR,    _______, _______, KC_WH_L, KC_WH_D, KC_WH_U, KC_WH_R,  _______, \
+  COLEMAK, RGB_SAI, _______, KC_WBAK,    KC_WFWD,    _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, \
+  QWERTY,  RGB_VAI, _______, C(KC_PGUP), C(KC_PGDN), _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,   _______, \
+  RGB_TOG, _______, _______, _______,    _______,    _______, KC_MPLY, _______, KC_MUTE, KC_VOLD, KC_VOLU,  KC_MNXT
 )
 
 };
@@ -234,23 +234,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-        case BACKLIT:
-          if (record->event.pressed) {
-            register_code(KC_RSFT);
-            #ifdef BACKLIGHT_ENABLE
-              backlight_step();
-            #endif
-            #ifdef __AVR__
-            writePinLow(E6);
-            #endif
-          } else {
-            unregister_code(KC_RSFT);
-            #ifdef __AVR__
-            writePinHigh(E6);
-            #endif
-          }
-          return false;
-          break;
       }
     return true;
 };
@@ -260,32 +243,6 @@ uint8_t last_muse_note = 0;
 uint16_t muse_counter = 0;
 uint8_t muse_offset = 70;
 uint16_t muse_tempo = 50;
-
-// void encoder_update_user(uint8_t index, bool clockwise) {
-//   if (muse_mode) {
-//     if (IS_LAYER_ON(_RAISE)) {
-//       if (clockwise) {
-//         muse_offset++;
-//       } else {
-//         muse_offset--;
-//       }
-//     } else {
-//       if (clockwise) {
-//         muse_tempo+=1;
-//       } else {
-//         muse_tempo-=1;
-//       }
-//     }
-//   } else {
-//     if (clockwise) {
-//       register_code(KC_PGDN);
-//       unregister_code(KC_PGDN);
-//     } else {
-//       register_code(KC_PGUP);
-//       unregister_code(KC_PGUP);
-//     }
-//   }
-// }
 
 /* The encoder_update_user is a function.
  * It'll be called by QMK every time you turn the encoder.
