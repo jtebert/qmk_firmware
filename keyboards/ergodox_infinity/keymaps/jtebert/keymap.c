@@ -20,7 +20,7 @@ enum custom_keycodes {
 
 enum unicode_names {
     // LEFT HAND
-    SQUARED, CUBED, PLUSMIN,
+    SQUARED, CUBED, PLUSMIN, TM, EMDASH,
     // RIGHT HAND
     DEG, TIMES, ENDASH, EQISH, LEQ, GEQ, DIV, NEQ,
     LEFT, DOWN, UP, RIGHT
@@ -31,6 +31,8 @@ const uint32_t PROGMEM unicode_map[] = {
     [SQUARED] = 0x00B2,  // ²
     [CUBED]   = 0x00B3,  // ³
     [PLUSMIN] = 0x00B1,  // ±
+    [TM]      = 0x2122,  // ™
+    [EMDASH]  = 0x2014,  // –
     // RIGHT HAND
     [DEG]     = 0x00B0,  // °
     [TIMES]   = 0x00D7,  // ×
@@ -40,10 +42,10 @@ const uint32_t PROGMEM unicode_map[] = {
     [GEQ]     = 0x2265,  // ≥
     [DIV]     = 0x00F7,  // ÷
     [NEQ]     = 0x2260,  // ≠
-    [LEFT]  = 0x2190,  // ←
-    [DOWN]  = 0x2193,  // ↓
-    [UP]    = 0x2191,  // ↑
-    [RIGHT] = 0x2192,  // →
+    [LEFT]    = 0x2190,  // ←
+    [DOWN]    = 0x2193,  // ↓
+    [UP]      = 0x2191,  // ↑
+    [RIGHT]   = 0x2192,  // →
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -54,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├──────┼────┼────┼────┼────┼────┼────┤              ├────┼────┼────┼────┼────┼────┼──────┤
      * │  TAB │  Q │  W │  F │  P │  G │ =+ │              │  ( │  J │  L │  U │  Y │  ; │  [{  │
      * ├──────┼────┼────┼────┼────┼────┤    │              │    ├────┼────┼────┼────┼────┼──────┤
-     * │   _  │  A │  R │  S │  T │  D ├────┤              ├────┤  H │  N │  E │  I │  O │   '  │
+     * │   -  │  A │  R │  S │  T │  D ├────┤              ├────┤  H │  N │  E │  I │  O │   '  │
      * ├──────┼────┼────┼────┼────┼────┤ F1 │              │  ) ├────┼────┼────┼────┼────┼──────┤
      * │LShift│  Z │  X │  C │  V │  B │    │              │    │  K │  M │  , │  . │ /? │  ]}  │
      * └─┬────┼────┼────┼────┼────┼────┴────┘              └────┴────┼────┼────┼────┼────┼────┬─┘
@@ -71,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,      KC_5, KC_CALC,
         KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,      KC_G, KC_EQL,
-        KC_UNDS, KC_A,    KC_R,    KC_S,    KC_T,      KC_D,
+        KC_MINS, KC_A,    KC_R,    KC_S,    KC_T,      KC_D,
         KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_V,      KC_B, MO(_FUNC),
         KC_LCTL, KC_LALT, KC_GRV,  KC_BSLS, KC_LGUI,
                                             MO(_SYMB), RGB_TOG,
@@ -111,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,      KC_5,    KC_CALC,
         KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,      KC_T,    KC_EQL,
-        KC_UNDS, KC_A,    KC_S,    KC_D,    KC_F,      KC_G,
+        KC_MINS, KC_A,    KC_S,    KC_D,    KC_F,      KC_G,
         KC_BSPC, KC_Z,    KC_X,    KC_C,    KC_V,      KC_B,    MO(_FUNC),
         KC_LCTL, KC_LALT, KC_GRV,  KC_BSLS, KC_LGUI,
                                             MO(_SYMB), RGB_TOG,
@@ -172,11 +174,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * ├──────┼────┼────┼────┼────┼────┼────┤              ├────┼────┼────┼────┼────┼────┼──────┤
      * │      │    │    │    │    │    │  ± │              │    │    │    │    │    │    │   ≈  │
      * ├──────┼────┼────┼────┼────┼────┤    │              │    ├────┼────┼────┼────┼────┼──────┤
-     * │      │    │    │    │    │    ├────┤              ├────┤    │    │    │    │    │      │
+     * │   –  │    │    │    │ TM │    ├────┤              ├────┤    │    │    │    │    │      │
      * ├──────┼────┼────┼────┼────┼────┤    │              │    ├────┼────┼────┼────┼────┼──────┤
      * │      │    │    │    │    │    │    │              │    │    │    │  ≤ │  ≥ │  ÷ │   ≠  │
      * └─┬────┼────┼────┼────┼────┼────┴────┘              └────┴────┼────┼────┼────┼────┼────┬─┘
-     *   │    │    │    │    │    │                                  │    │    │    │    │    │
+     *   │    │    │    │    │    │                                  │  ← │  ↓ │  ↑ │  → │    │
      *   └────┴────┴────┴────┴────┘    ┌────┬────┐    ┌────┬────┐    └────┴────┴────┴────┴────┘
      *                                 │!!!!│    │    │    │    │
      *                            ┌────┼────┼────┤    ├────┼────┼────┐
@@ -187,11 +189,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [_SYMB] = LAYOUT_ergodox(
         // left hand
-        RESET,   _______, X(SQUARED), X(CUBED), _______, _______, _______,
-        _______, _______, _______,    _______,  _______, _______, X(PLUSMIN),
-        _______, _______, _______,    _______,  _______, _______,
-        _______, _______, _______,    _______,  _______, _______, _______,
-        _______, _______, _______,    _______,  _______,
+        RESET,     _______, X(SQUARED), X(CUBED), _______, _______, _______,
+        _______,   _______, _______,    _______,  _______, _______, X(PLUSMIN),
+        X(EMDASH), _______, _______,    _______,  X(TM),   _______,
+        _______,   _______, _______,    _______,  _______, _______, _______,
+        _______,   _______, _______,    _______,  _______,
                                                 _______, _______,
                                                          _______,
                                       _______,  _______, _______,
@@ -200,7 +202,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, _______, _______, _______,  _______, _______, X(EQISH),
                  _______, _______, _______,  _______, _______, _______,
         _______, _______, _______, X(LEQ),   X(GEQ),  X(DIV),  X(NEQ),
-                          _______, X(LEFT),  X(DOWN), X(UP),   X(RIGHT),
+                          X(LEFT),  X(DOWN), X(UP),   X(RIGHT), _______,
         _______, _______,
         _______,
         _______, _______, _______),
